@@ -12,23 +12,20 @@ function App() {
           alt="Logo"
           src="https://1000logos.net/wp-content/uploads/2017/08/Allstate-Emblem.jpg"
         />
-        <a class="menu-item" href="/create">
+        <a class="menu-item" href="/">
           New Claim
         </a>
-        <a class="menu-item" href="/read">
+        <a class="menu-item" href="/admin">
           Admin
         </a>
       </div>
       <div className="App">
         <div>
-          <Route exact path="/create" component={Create}></Route>
+          <Route exact path="/" component={Create}></Route>
         </div>
         <div>
-          <Route exact path="/read" component={Read}></Route>
+          <Route exact path="/admin" component={Read}></Route>
         </div>
-      </div>
-      <div>
-        {Create}
       </div>
     </BrowserRouter>
   );
