@@ -13,6 +13,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import "react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css";
 import Select from "react-select";
 import { useState } from "react";
+import SERVER_URL from "../../utils/constants.js";
 
 export default function Create() {
  const [premium, setPremium] = useState(0)
@@ -46,7 +47,7 @@ export default function Create() {
 
     console.log(userDetails);
 
-    const endPointURL = "http://localhost:8080/drivers";
+    const endPointURL = `${SERVER_URL}/drivers`;
 
     axios
       .post(endPointURL, userDetails)

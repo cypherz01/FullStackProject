@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Table } from "semantic-ui-react";
 import "./Read.css";
 import axios from "axios";
+import SERVER_URL from "../../utils/Constants";
 
 export default function Read() {
   const [tableData, setTableData] = useState([]);
@@ -13,7 +14,7 @@ export default function Read() {
   };
 
   function callMockApi(command) {
-    const endPointURL = `http://localhost:8080/drivers`;
+    const endPointURL = `${SERVER_URL}/drivers`;
 
     switch (command) {
       case "GET":
