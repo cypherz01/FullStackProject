@@ -27,8 +27,11 @@ function App() {
           <Route exact path="/read" component={Read}></Route>
         </div>
       </div>
+      <div>
+        {Create}
+      </div>
     </BrowserRouter>
   );
 }
 
-export default Create;
+export default App;
