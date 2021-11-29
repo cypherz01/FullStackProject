@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Table } from "semantic-ui-react";
 import "./Read.css";
 import axios from "axios";
-import SERVER_URL from "../../utils/Constants";
+import SERVER_URL from "../../utils/constants.js";
 
 export default function Read() {
   const [tableData, setTableData] = useState([]);
