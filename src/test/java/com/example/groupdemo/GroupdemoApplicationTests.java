@@ -1,4 +1,3 @@
-/*
 package com.example.groupdemo;
 
 
@@ -78,4 +77,3 @@ class GroupdemoApplicationTests {
     }
 
 }
-*/
