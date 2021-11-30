@@ -67,7 +67,7 @@ export default function Read() {
           <Button color="blue" onClick={() => callMockApi("GET")}>
             GET
           </Button>
-          {errorNoRecord && <p className='errors'>No record found with Driver ID {id}</p>}
+          {errorNoRecord && <p className='errors'>No record found with Driver ID {inputId}</p>}
         </Form.Field>
 
         <Form.Field>
