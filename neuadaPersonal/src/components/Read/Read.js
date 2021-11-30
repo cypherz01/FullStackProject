@@ -93,8 +93,8 @@ export default function Read() {
           <Button color="blue" onClick={callMockApi("GET")}>
             GET
           </Button>
+          {errorNoRecordGet && <p className='errorsGet'>No record found with Driver ID 1234 {inputId}</p>}
         </Form.Field>
-        {errorNoRecordGet && <p className='errorsGet'>No record found with Driver ID {inputId}</p>}
 
         <Form.Field>
           <h1>Enter Driver ID:</h1>
@@ -110,8 +110,8 @@ export default function Read() {
           <Button color="green" onClick={() => callMockApi("UPDATE")}>
             UPDATE
           </Button>
+          {errorNoRecordPut && <p className='errorsPut'>No record found with Driver ID PUT {inputId}</p>}
         </Form.Field>
-        {errorNoRecordPut && <p className='errorsPut'>No record found with Driver ID {inputId}</p>}
 
         <Form.Field>
           <h1>Enter Driver ID:</h1>
@@ -122,8 +122,9 @@ export default function Read() {
           <Button color="red" onClick={() => callMockApi("DELETE")}>
             DELETE
           </Button>
+          {errorNoRecordDel && <p className='errorsDel'>No record found with Driver ID DELETE {inputId}</p>}
         </Form.Field>
-        {errorNoRecordDel && <p className='errorsDel'>No record found with Driver ID {inputId}</p>}
+
       </Form>
       <div class="Table">
       <Table celled>
