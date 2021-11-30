@@ -60,14 +60,15 @@ export default function Read() {
         <Form.Field>
           <h1>Enter Driver ID:</h1>
           <input
+
             placeholder="ID"
             onChange={(e) => setInputId(e.target.value)}
           />
           <Button color="blue" type = 'submit' onClick={callMockApi("GET")}>
             GET
           </Button>
-          {errorNoRecord && <p className='errors'>No record found with Driver ID {inputId}</p>}
         </Form.Field>
+        {errorNoRecord && <p className='errors'>No record found with Driver ID {inputId}</p>}
 
         <Form.Field>
           <h1>Enter Driver ID:</h1>
