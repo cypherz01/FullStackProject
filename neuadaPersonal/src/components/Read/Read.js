@@ -63,7 +63,7 @@ export default function Read() {
             placeholder="ID"
             onChange={(e) => setInputId(e.target.value)}
           />
-          <Button color="blue" onClick={() => callMockApi("GET")}>
+          <Button color="blue" type = 'submit' onClick={callMockApi("GET")}>
             GET
           </Button>
           {errorNoRecord && <p className='errors'>No record found with Driver ID {inputId}</p>}
