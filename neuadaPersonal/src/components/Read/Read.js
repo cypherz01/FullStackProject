@@ -21,6 +21,7 @@ export default function Read() {
 
     switch (command) {
       case "GET":
+
         axios
           .get(endPointURL+`/single?id=${inputId}`)
           .then(response => handleResponseGet(response.data))
@@ -86,15 +87,14 @@ export default function Read() {
         <Form.Field>
           <h1>Enter Driver ID:</h1>
           <input
-
             placeholder="ID"
             onBlur={e => setInputId(e.target.value)}
           />
-          <Button color="blue" type = 'submit' onClick={callMockApi("GET")}>
+          <Button color="blue" onClick={callMockApi("GET")}>
             GET
           </Button>
         </Form.Field>
-        {errorNoRecordGet && <p className='errors'>No record found with Driver ID {inputId}</p>}
+        {errorNoRecordGet && <p className='errorsGet'>No record found with Driver ID {inputId}</p>}
 
         <Form.Field>
           <h1>Enter Driver ID:</h1>
@@ -111,7 +111,7 @@ export default function Read() {
             UPDATE
           </Button>
         </Form.Field>
-        {errorNoRecordPut && <p className='errors'>No record found with Driver ID {inputId}</p>}
+        {errorNoRecordPut && <p className='errorsPut'>No record found with Driver ID {inputId}</p>}
 
         <Form.Field>
           <h1>Enter Driver ID:</h1>
@@ -123,7 +123,7 @@ export default function Read() {
             DELETE
           </Button>
         </Form.Field>
-        {errorNoRecordDel && <p className='errors'>No record found with Driver ID {inputId}</p>}
+        {errorNoRecordDel && <p className='errorsDel'>No record found with Driver ID {inputId}</p>}
       </Form>
       <div class="Table">
       <Table celled>
