@@ -8,6 +8,7 @@ export default function Read() {
   const [tableData, setTableData] = useState([]);
   const [inputId, setInputId] = useState("");
   const [newTelephone, setNewTelephone] = useState("");
+  const [errorNoRecord, setErrorNoRecord] = useState(false);
 
   const userDetails = {
     telephoneNumber: newTelephone,
@@ -20,7 +21,7 @@ export default function Read() {
       case "GET":
         axios
           .get(endPointURL+`/single?id=${inputId}`)
-          .then((response) => setTableData(response.data))
+          .then((response) => handleResponseGet(response.data))
           .catch((response) => console.log(response));
         return;
       case "UPDATE":
@@ -41,6 +42,19 @@ export default function Read() {
     }
   }
 
+  const handleResponseGet = (data) =>{
+    if(data && !Array.isArray(data))
+    {
+      setTableData(data);
+      setErrorNoRecord(false);
+    }
+    else
+    {
+      document.getElementById("driverIDRead").value = '';
+      setErrorNoRecord(true);
+    }
+  }
+
   return (
     <div class ="Admin">
       <Form>
@@ -53,6 +67,7 @@ export default function Read() {
           <Button color="blue" onClick={() => callMockApi("GET")}>
             GET
           </Button>
+          {errorNoRecord && <p className='errors'>No record found with Driver ID {id}</p>}
         </Form.Field>
 
         <Form.Field>
