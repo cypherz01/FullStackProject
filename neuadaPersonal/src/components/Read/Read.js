@@ -8,7 +8,9 @@ export default function Read() {
   const [tableData, setTableData] = useState([]);
   const [inputId, setInputId] = useState("");
   const [newTelephone, setNewTelephone] = useState("");
-  const [errorNoRecord, setErrorNoRecord] = useState(false);
+  const [errorNoRecordGet, setErrorNoRecordGet] = useState(false);
+  const [errorNoRecordPut, setErrorNoRecordPut] = useState(false);
+  const [errorNoRecordDel, setErrorNoRecordDel] = useState(false);
 
   const userDetails = {
     telephoneNumber: newTelephone,
@@ -21,20 +23,20 @@ export default function Read() {
       case "GET":
         axios
           .get(endPointURL+`/single?id=${inputId}`)
-          .then(response => handleResponseGet(response.data))
+          .then(response => handleResponse(response.data))
           .catch(err => console.log(err));
         return;
       case "UPDATE":
         axios
           .put(endPointURL+`/update?id=${inputId}&newTelephoneNumber=${newTelephone}`, userDetails)
-          .then((response) => setTableData(response.data))
-          .catch((response) => console.log(response));
+          .then(response => handleResponse(response.data))
+          .catch(err => console.log(err));
         return;
       case "DELETE":
         axios
           .delete(endPointURL+`/delete?id=${inputId}`)
-          .then((response) => setTableData(response))
-          .catch((response) => console.log(response));
+          .then(response => handleResponse(response.data))
+          .catch(err => console.log(err));
         return;
       default:
         console.log("error");
@@ -46,11 +48,35 @@ export default function Read() {
     if(data && !Array.isArray(data))
     {
       setTableData(data);
-      setErrorNoRecord(false);
+      setErrorNoRecordGet(false);
     }
     else
     {
-      setErrorNoRecord(true);
+      setErrorNoRecordGet(true);
+    }
+  }
+
+  const handleResponsePut = (data) =>{
+    if(data && !Array.isArray(data))
+    {
+      setTableData(data);
+      setErrorNoRecordPut(false);
+    }
+    else
+    {
+      setErrorNoRecordPut(true);
+    }
+  }
+
+  const handleResponseDelete = (data) =>{
+    if(data && !Array.isArray(data))
+    {
+      setTableData(data);
+      setErrorNoRecordDel(false);
+    }
+    else
+    {
+      setErrorNoRecordDel(true);
     }
   }
 
@@ -62,13 +88,13 @@ export default function Read() {
           <input
 
             placeholder="ID"
-            onChange={(e) => setInputId(e.target.value)}
+            onBlur={e => setInputId(e.target.value)}
           />
           <Button color="blue" type = 'submit' onClick={callMockApi("GET")}>
             GET
           </Button>
         </Form.Field>
-        {errorNoRecord && <p className='errors'>No record found with Driver ID {inputId}</p>}
+        {errorNoRecordGet && <p className='errors'>No record found with Driver ID {inputId}</p>}
 
         <Form.Field>
           <h1>Enter Driver ID:</h1>
@@ -79,23 +105,25 @@ export default function Read() {
           <h1>Enter New Telephone Number:</h1>
           <input
             placeholder="telephone"
-            onChange={(e) => setNewTelephone(e.target.value)}
+            onBlur={e => setNewTelephone(e.target.value)}
           />
           <Button color="green" onClick={() => callMockApi("UPDATE")}>
             UPDATE
           </Button>
         </Form.Field>
+        {errorNoRecordPut && <p className='errors'>No record found with Driver ID {inputId}</p>}
 
         <Form.Field>
           <h1>Enter Driver ID:</h1>
           <input
             placeholder="ID"
-            onChange={(e) => setInputId(e.target.value)}
+            onBlur={e=> setInputId(e.target.value)}
           />
           <Button color="red" onClick={() => callMockApi("DELETE")}>
             DELETE
           </Button>
         </Form.Field>
+        {errorNoRecordDel && <p className='errors'>No record found with Driver ID {inputId}</p>}
       </Form>
       <div class="Table">
       <Table celled>
