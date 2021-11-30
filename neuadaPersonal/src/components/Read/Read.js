@@ -50,7 +50,6 @@ export default function Read() {
     }
     else
     {
-      document.getElementById("driverIDRead").value = '';
       setErrorNoRecord(true);
     }
   }
