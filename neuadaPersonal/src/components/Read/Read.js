@@ -49,10 +49,12 @@ export default function Read() {
     {
       setTableData(data);
       setErrorNoRecord(false);
+      return;
     }
     else
     {
       setErrorNoRecord(true);
+      return;
     }
   }
 
