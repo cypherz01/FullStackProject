@@ -54,7 +54,7 @@ export default function Read() {
     }
     else
     {
-      setdisplayId({inputId})
+      setdisplayId(inputId)
       setErrorNoRecord(true);
       return;
     }
@@ -68,7 +68,7 @@ export default function Read() {
           <h1>Enter Driver ID:</h1>
           <input
             placeholder="ID"
-            onBlur={e => setInputId(e.target.value)}
+            onChange={e => setInputId(e.target.value)}
           />
           <Button color="blue" onClick={() => callMockApi("GET")}>
             GET
