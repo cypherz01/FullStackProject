@@ -52,6 +52,7 @@ export default function Read() {
     }
     else
     {
+      setTableData([])
       setdisplayId(inputId);
       setErrorNoRecord(true);
     }
@@ -59,6 +60,7 @@ export default function Read() {
 
 
   function handleError(){
+      setTableData([])
       setdisplayId(inputId);
       setErrorNoRecord(true);
   }
