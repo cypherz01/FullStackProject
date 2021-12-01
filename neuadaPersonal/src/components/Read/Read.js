@@ -24,19 +24,19 @@ export default function Read() {
         axios
           .get(endPointURL+`/single?id=${inputId}`)
           .then(response => handleResponse(response.data))
-          .catch(err => handleResponse(err));
+          .catch(err => handleError());
         return;
       case "UPDATE":
         axios
           .put(endPointURL+`/update?id=${inputId}&newTelephoneNumber=${newTelephone}`, userDetails)
           .then(response => handleResponse(response.data))
-          .catch(err => handleResponse(err));
+          .catch(err => handleError());
         return;
       case "DELETE":
         axios
           .delete(endPointURL+`/delete?id=${inputId}`)
           .then(response => handleResponse(response.data))
-          .catch(err => handleResponse(err));
+          .catch(err => handleError());
         return;
       default:
         console.log("error");
@@ -55,6 +55,13 @@ export default function Read() {
       setdisplayId(inputId);
       setErrorNoRecord(true);
     }
+  }
+
+
+  function handleError(){
+      setTableData(null);
+      setdisplayId(inputId);
+      setErrorNoRecord(true);
   }
 
 
