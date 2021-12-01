@@ -24,7 +24,7 @@ export default function Read() {
         axios
           .get(endPointURL+`/single?id=${inputId}`)
           .then(response => handleResponse(response.data))
-          .catch(err => handleResponse(response.data));
+          .catch(err => handleResponse(err));
         return;
       case "UPDATE":
         axios
