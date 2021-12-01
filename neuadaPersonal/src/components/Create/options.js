@@ -21,7 +21,7 @@ export const engineSizeOptions = [
   { label: "2000", value: 2000 },
   { label: "2500", value: 2500 },
   { label: "3000", value: 3000 },
-  { label: "other", value: -1 },
+  { label: "Other", value: -1 },
 ];
 
 export const additionalDriversOptions = [

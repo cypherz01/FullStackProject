@@ -129,6 +129,7 @@ export default function Read() {
             <Table.HeaderCell>Registered For Out Of State?</Table.HeaderCell>
             <Table.HeaderCell>Vehcile Value</Table.HeaderCell>
             <Table.HeaderCell>Date Registered</Table.HeaderCell>
+            <Table.HeaderCell>Insurance Premium</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -149,6 +150,7 @@ export default function Read() {
             <Table.Cell>{tableData.registeredOutsideState}</Table.Cell>
             <Table.Cell>{tableData.vehicleValue}</Table.Cell>
             <Table.Cell>{tableData.dateRegistered}</Table.Cell>
+              <Table.Cell>{tableData.premium}</Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>

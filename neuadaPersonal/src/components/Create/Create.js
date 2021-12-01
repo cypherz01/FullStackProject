@@ -64,8 +64,8 @@ export default function Create() {
   return (
     <div class="Submit">
       <div class="text">
-        <h1> Note:<br/>please ensure that all fields are entered before submitting. 
-          once submitted you should see your premium appear below.</h1>
+        <h1> Note:<br/>Please ensure that all fields are entered before submitting.
+          Once submitted you should see your premium appear below.</h1>
       </div>
       <Form onSubmit={handleSubmit(callMockAPI, handleError)}>
         <Form.Group widths="equal">
@@ -135,7 +135,7 @@ export default function Create() {
         <Form.Field error={!!errors.telephoneNumber}>
           <h1>Phone Number</h1>
           <input
-            placeholder="phoneNumber"
+            placeholder="Phone Number"
             {...register("telephoneNumber", {
               required: "telephone Number is mandatory",
               maxLength: {
