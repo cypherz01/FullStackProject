@@ -7,6 +7,7 @@ import SERVER_URL from "../../utils/constants.js";
 export default function Read() {
   const [tableData, setTableData] = useState([]);
   const [inputId, setInputId] = useState("");
+  const [displayId, setdisplayId] = useState("");
   const [newTelephone, setNewTelephone] = useState("");
   const [errorNoRecord, setErrorNoRecord] = useState(false);
 
@@ -53,6 +54,7 @@ export default function Read() {
     }
     else
     {
+      setdisplayId({inputId})
       setErrorNoRecord(true);
       return;
     }
@@ -60,7 +62,7 @@ export default function Read() {
 
   return (
     <div class ="Admin">
-      {errorNoRecord && <p className='errors'>No record found with Driver ID: {inputId}</p>}
+      {errorNoRecord && <p className='errors'>No record found with Driver ID: {displayId}</p>}
       <Form>
         <Form.Field>
           <h1>Enter Driver ID:</h1>
