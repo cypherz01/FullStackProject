@@ -68,7 +68,7 @@ export default function Read() {
             placeholder="ID"
             onBlur={e => setInputId(e.target.value)}
           />
-          <Button color="blue" onClick={callMockApi("GET")}>
+          <Button color="blue" onClick={() => callMockApi("GET")}>
             GET
           </Button>
         </Form.Field>
