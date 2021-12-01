@@ -59,7 +59,7 @@ export default function Read() {
 
   return (
     <div class ="Admin">
-      {(errorNoRecord && <p className='errors'>No record found with Driver ID: {inputId}</p>}
+      {errorNoRecord && <p className='errors'>No record found with Driver ID: {inputId}</p>}
       <Form>
         <Form.Field>
           <h1>Enter Driver ID:</h1>
