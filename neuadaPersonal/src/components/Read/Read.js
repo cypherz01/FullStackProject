@@ -46,7 +46,7 @@ export default function Read() {
   }
 
   function handleResponse(data){
-    if(data && !Array.isArray(data))
+    if(data)
     {
       setTableData(data);
       setErrorNoRecord(false);
