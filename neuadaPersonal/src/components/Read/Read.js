@@ -21,23 +21,22 @@ export default function Read() {
 
     switch (command) {
       case "GET":
-
         axios
           .get(endPointURL+`/single?id=${inputId}`)
           .then(response => handleResponse(response.data))
-          .catch(err => console.log(err));
+          .catch(err => handleResponse(response.data));
         return;
       case "UPDATE":
         axios
           .put(endPointURL+`/update?id=${inputId}&newTelephoneNumber=${newTelephone}`, userDetails)
           .then(response => handleResponse(response.data))
-          .catch(err => console.log(err));
+          .catch(err => handleResponse(err));
         return;
       case "DELETE":
         axios
           .delete(endPointURL+`/delete?id=${inputId}`)
           .then(response => handleResponse(response.data))
-          .catch(err => console.log(err));
+          .catch(err => handleResponse(err));
         return;
       default:
         console.log("error");
@@ -58,6 +57,7 @@ export default function Read() {
     }
   }
 
+
   return (
     <div class ="Admin">
       {errorNoRecord && <p className='errors'>No record found with Driver ID: {displayId}</p>}
@@ -77,7 +77,7 @@ export default function Read() {
           <h1>Enter Driver ID:</h1>
           <input
             placeholder="ID"
-            onChange={(e) => setInputId(e.target.value)}
+            onChange={e => setInputId(e.target.value)}
           />
           <h1>Enter New Telephone Number:</h1>
           <input
@@ -93,7 +93,7 @@ export default function Read() {
           <h1>Enter Driver ID:</h1>
           <input
             placeholder="ID"
-            onChange={e=> setInputId(e.target.value)}
+            onChange={e => setInputId(e.target.value)}
           />
           <Button color="red" onClick={() => callMockApi("DELETE")}>
             DELETE
