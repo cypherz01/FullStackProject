@@ -8,9 +8,8 @@ export default function Read() {
   const [tableData, setTableData] = useState([]);
   const [inputId, setInputId] = useState("");
   const [newTelephone, setNewTelephone] = useState("");
-  const [errorNoRecordGet, setErrorNoRecordGet] = useState(false);
-  const [errorNoRecordPut, setErrorNoRecordPut] = useState(false);
-  const [errorNoRecordDel, setErrorNoRecordDel] = useState(false);
+  const [errorNoRecord, setErrorNoRecord] = useState(false);
+
 
   const userDetails = {
     telephoneNumber: newTelephone,
@@ -49,11 +48,11 @@ export default function Read() {
     if(data && !Array.isArray(data))
     {
       setTableData(data);
-      setErrorNoRecordGet(false);
+      setErrorNoRecord(false);
     }
     else
     {
-      setErrorNoRecordGet(true);
+      setErrorNoRecord(true);
     }
   }
 
