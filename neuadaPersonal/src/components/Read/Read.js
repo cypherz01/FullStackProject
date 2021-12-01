@@ -24,19 +24,19 @@ export default function Read() {
 
         axios
           .get(endPointURL+`/single?id=${inputId}`)
-          .then(response => handleResponseGet(response.data))
+          .then(response => handleResponse(response.data))
           .catch(err => console.log(err));
         return;
       case "UPDATE":
         axios
           .put(endPointURL+`/update?id=${inputId}&newTelephoneNumber=${newTelephone}`, userDetails)
-          .then(response => handleResponsePut(response.data))
+          .then(response => handleResponse(response.data))
           .catch(err => console.log(err));
         return;
       case "DELETE":
         axios
           .delete(endPointURL+`/delete?id=${inputId}`)
-          .then(response => handleResponseDelete(response.data))
+          .then(response => handleResponse(response.data))
           .catch(err => console.log(err));
         return;
       default:
@@ -45,7 +45,7 @@ export default function Read() {
     }
   }
 
-  const handleResponseGet = (data) =>{
+  const handleResponse = (data) =>{
     if(data && !Array.isArray(data))
     {
       setTableData(data);
@@ -57,32 +57,9 @@ export default function Read() {
     }
   }
 
-  const handleResponsePut = (data) =>{
-    if(data && !Array.isArray(data))
-    {
-      setTableData(data);
-      setErrorNoRecordPut(false);
-    }
-    else
-    {
-      setErrorNoRecordPut(true);
-    }
-  }
-
-  const handleResponseDelete = (data) =>{
-    if(data && !Array.isArray(data))
-    {
-      setTableData(data);
-      setErrorNoRecordDel(false);
-    }
-    else
-    {
-      setErrorNoRecordDel(true);
-    }
-  }
-
   return (
     <div class ="Admin">
+      {(errorNoRecord && <p className='errors'>No record found with Driver ID: {inputId}</p>}
       <Form>
         <Form.Field>
           <h1>Enter Driver ID:</h1>
@@ -93,7 +70,6 @@ export default function Read() {
           <Button color="blue" onClick={callMockApi("GET")}>
             GET
           </Button>
-          {errorNoRecordGet && <p className='errorsGet'>No record found with Driver ID 1234 {inputId}</p>}
         </Form.Field>
 
         <Form.Field>
@@ -110,7 +86,6 @@ export default function Read() {
           <Button color="green" onClick={() => callMockApi("UPDATE")}>
             UPDATE
           </Button>
-          {errorNoRecordPut && <p className='errorsPut'>No record found with Driver ID PUT {inputId}</p>}
         </Form.Field>
 
         <Form.Field>
@@ -122,7 +97,6 @@ export default function Read() {
           <Button color="red" onClick={() => callMockApi("DELETE")}>
             DELETE
           </Button>
-          {errorNoRecordDel && <p className='errorsDel'>No record found with Driver ID DELETE {inputId}</p>}
         </Form.Field>
 
       </Form>
