@@ -54,7 +54,7 @@ export default function Read() {
     }
     else
     {
-      setdisplayId(inputId)
+      setdisplayId(inputId);
       setErrorNoRecord(true);
       return;
     }
