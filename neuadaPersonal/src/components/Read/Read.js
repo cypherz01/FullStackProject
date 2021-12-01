@@ -80,7 +80,7 @@ export default function Read() {
           <h1>Enter New Telephone Number:</h1>
           <input
             placeholder="telephone"
-            onBlur={e => setNewTelephone(e.target.value)}
+            onChange={e => setNewTelephone(e.target.value)}
           />
           <Button color="green" onClick={() => callMockApi("UPDATE")}>
             UPDATE
@@ -91,7 +91,7 @@ export default function Read() {
           <h1>Enter Driver ID:</h1>
           <input
             placeholder="ID"
-            onBlur={e=> setInputId(e.target.value)}
+            onChange={e=> setInputId(e.target.value)}
           />
           <Button color="red" onClick={() => callMockApi("DELETE")}>
             DELETE
