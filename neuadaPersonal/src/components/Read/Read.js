@@ -59,7 +59,6 @@ export default function Read() {
 
 
   function handleError(){
-      setTableData(null);
       setdisplayId(inputId);
       setErrorNoRecord(true);
   }
