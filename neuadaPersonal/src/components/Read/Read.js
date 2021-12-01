@@ -50,13 +50,11 @@ export default function Read() {
     {
       setTableData(data);
       setErrorNoRecord(false);
-      return;
     }
     else
     {
       setdisplayId(inputId);
       setErrorNoRecord(true);
-      return;
     }
   }
 
