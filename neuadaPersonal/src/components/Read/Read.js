@@ -44,7 +44,7 @@ export default function Read() {
     }
   }
 
-  const handleResponse = (data) =>{
+  function handleResponse(data){
     if(data && !Array.isArray(data))
     {
       setTableData(data);
